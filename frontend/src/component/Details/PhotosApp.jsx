@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useWindowContext } from "../../context/WindowContext";
 import { useMediaContext } from "../../context/MediaContext";
+import useScreenSize from "../../hooks/useScreenSize";
 
 /**
  * Photos Gallery
@@ -32,6 +33,15 @@ const PhotosApp = ({ windowId }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [isMaximized, setIsMaximized] = useState(false);
   const dragControls = useDragControls();
+  const { isMobile, isTablet } = useScreenSize();
+  const forceFullscreen = isMobile;
+
+  const getWindowSize = () => {
+    if (isMobile) return { width: "100vw", height: "calc(100vh - 32px)", top: "32px", left: "0px" };
+    if (isTablet) return { width: "min(860px, 96vw)", height: "min(600px, 88vh)", top: "36px", left: "2vw" };
+    return { width: "860px", height: "600px", top: "0px", left: "10%" };
+  };
+  const windowSize = getWindowSize();
 
   // Filter only images from both demo and captured media
   const allImages = [
@@ -43,22 +53,22 @@ const PhotosApp = ({ windowId }) => {
 
   return (
     <motion.div
-      drag={!isMaximized}
+      drag={!isMaximized && !forceFullscreen}
       dragControls={dragControls}
       dragListener={false}
       dragMomentum={false}
-      initial={{ scale: 0.95, opacity: 0, x: 150, y: 100 }}
+      initial={{ scale: 0.95, opacity: 0, x: isMobile ? 0 : 150, y: isMobile ? 0 : 100 }}
       animate={{
         scale: 1,
         opacity: 1,
-        width: isMaximized ? "100vw" : "860px",
-        height: isMaximized ? "calc(100vh - 32px)" : "600px",
-        top: isMaximized ? "32px" : "0px",
-        left: isMaximized ? "0px" : "10%",
-        x: isMaximized ? 0 : undefined,
-        y: isMaximized ? 0 : undefined,
+        width: forceFullscreen || isMaximized ? "100vw" : windowSize.width,
+        height: forceFullscreen || isMaximized ? "calc(100vh - 32px)" : windowSize.height,
+        top: forceFullscreen || isMaximized ? "32px" : windowSize.top,
+        left: forceFullscreen || isMaximized ? "0px" : windowSize.left,
+        x: (forceFullscreen || isMaximized) ? 0 : undefined,
+        y: (forceFullscreen || isMaximized) ? 0 : undefined,
       }}
-      className={`absolute z-[40] pointer-events-auto bg-[#1e1e1e] shadow-2xl border border-white/10 overflow-hidden flex flex-col ${isMaximized ? "rounded-none" : "rounded-xl"}`}
+      className={`absolute z-[40] pointer-events-auto bg-[#1e1e1e] shadow-2xl border border-white/10 overflow-hidden flex flex-col ${forceFullscreen || isMaximized ? "rounded-none" : "rounded-xl"}`}
     >
       {/* Header Bar */}
       <div 
@@ -77,10 +87,14 @@ const PhotosApp = ({ windowId }) => {
         </div>
 
         <div className="flex items-center gap-2">
-          <button onClick={() => minimizeWindow(windowId)} className="p-1 px-3 text-white/40 hover:bg-white/5 rounded-md"><Minus size={14} /></button>
-          <button onClick={() => setIsMaximized(!isMaximized)} className="p-1 px-3 text-white/40 hover:bg-white/5 rounded-md">
-            {isMaximized ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
-          </button>
+          {!isMobile && (
+            <button onClick={() => minimizeWindow(windowId)} className="p-1 px-3 text-white/40 hover:bg-white/5 rounded-md"><Minus size={14} /></button>
+          )}
+          {!isMobile && (
+            <button onClick={() => setIsMaximized(!isMaximized)} className="p-1 px-3 text-white/40 hover:bg-white/5 rounded-md">
+              {isMaximized ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
+            </button>
+          )}
           <button onClick={handleClose} className="p-1 px-3 text-white bg-red-500/80 hover:bg-red-500 rounded-md"><X size={14} /></button>
         </div>
       </div>
@@ -93,7 +107,7 @@ const PhotosApp = ({ windowId }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="p-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+              className="p-4 sm:p-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"
             >
               {allImages.map((photo) => (
                 <PhotoCard key={photo.id} photo={photo} onClick={() => setSelectedPhoto(photo)} />

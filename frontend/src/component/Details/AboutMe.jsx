@@ -51,7 +51,7 @@ const AboutMe = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-col max-w-2xl gap-8 px-1 py-2 mx-auto"
+      className="flex flex-col w-full max-w-2xl gap-6 px-1 py-2 mx-auto sm:gap-8"
     >
       <motion.div
         variants={fadeUp(0.5)}
@@ -64,7 +64,7 @@ const AboutMe = () => {
           }}
         />
         <motion.img
-          src="/12.jpg"
+          src="/harsh.jpeg"
           alt="Harsh Kumar"
           className="relative z-10 object-cover border border-white shadow-2xl w-36 h-36 rounded-2xl"
           whileHover={{ scale: 1.03 }}
@@ -74,7 +74,7 @@ const AboutMe = () => {
 
       <motion.div variants={fadeUp(0.1)} className="flex flex-col gap-1.5">
         <h1
-          className="font-sans font-bold leading-tight text-transparent text-7xl sm:text-5xl bg-clip-text"
+          className="font-sans text-4xl font-bold leading-tight text-transparent sm:text-5xl lg:text-6xl bg-clip-text"
           style={{
             backgroundImage:
               "linear-gradient(120deg, #ffffff 30%, rgba(255,255,255,0.45))",
@@ -93,13 +93,20 @@ const AboutMe = () => {
             New Delhi, India
           </span>
           <span className="flex items-center gap-1.5 text-base text-white/80">
-            <Briefcase size={14} className="shrink-0" />
-            Freelance Available
-          </span>
-          <span className="flex items-center gap-1.5 text-base text-white/80">
             <Mail size={14} className="shrink-0" />
-            [EMAIL_ADDRESS]
+            <a href="mailto:hkaggarwal013@gmail.com">hkaggarwal013@gmai.com</a>
           </span>
+        </div>
+        <div className="flex items-center gap-3 mt-2 text-base text-white/80">
+          <a href="https://github.com/013harsh">
+            <img src="/github.svg" alt="" width={30} height={30} />
+          </a>
+          <a href="https://www.linkedin.com/in/harsh-kumar-b1ab9b272/">
+            <img src="/linkedin.svg" alt="" width={30} height={30} />
+          </a>
+          <a href="https://www.instagram.com/hkaggarwal013">
+            <img src="/instagram.svg" alt="" width={30} height={30} />
+          </a>
         </div>
       </motion.div>
 
@@ -126,12 +133,15 @@ const AboutMe = () => {
       />
 
       {/* Stats Row */}
-      <motion.div variants={fadeUp(0.2)} className="grid grid-cols-4 gap-3">
+      <motion.div
+        variants={fadeUp(0.2)}
+        className="grid grid-cols-2 gap-3 sm:grid-cols-4"
+      >
         {[
-          { value: "0", label: "Projects" },
+          { value: "17+", label: "Projects" },
           { value: "0", label: "Internships" },
           { value: "7.45", label: "CGPA" },
-          { value: "0", label: "Tech Stack" },
+          { value: "15+", label: "Tech Stack" },
         ].map((stat, i) => (
           <motion.div
             key={i}

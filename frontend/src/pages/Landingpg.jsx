@@ -1,4 +1,3 @@
-import React, { useState, memo } from "react";
 import DesktopIcon from "../component/DesktopIcon";
 import { useWindowContext } from "../context/WindowContext";
 
@@ -10,13 +9,14 @@ import PhotoApp from "../component/Details/PhotosApp";
 import VideoApp from "../component/Details/VideosApp";
 import BrowserApp from "../component/apps/BrowserApp";
 import DetailWindow from "../component/apps/DetailWindow";
+import MapsApp from "../component/apps/MapsApp";
+import SettingsApp from "../component/apps/SettingsApp";
 
 // Detail Components
 import Skills from "../component/Details/Skills";
 import AboutMe from "../component/Details/AboutMe";
 import Experience from "../component/Details/Experience";
 import Projects from "../component/Details/Projects";
-import MyCV from "../component/Details/MyCV";
 import useScreenSize from "../hooks/useScreenSize";
 
 const AppRenderer = memo(({ window }) => {
@@ -33,6 +33,10 @@ const AppRenderer = memo(({ window }) => {
       return <FilesApp windowId={windowId} metadata={metadata} />;
     case "chrome":
       return <BrowserApp windowId={windowId} metadata={metadata} />;
+    case "maps":
+      return <MapsApp windowId={windowId} metadata={metadata} />;
+    case "settings":
+      return <SettingsApp windowId={windowId} metadata={metadata} />;
 
     // Portfolio Detail Pages using the DetailWindow wrapper
     case "skills":

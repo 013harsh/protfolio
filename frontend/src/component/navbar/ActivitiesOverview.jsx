@@ -11,6 +11,15 @@ const ActivitiesOverview = ({ isOpen, onClose }) => {
 
   const apps = [
     {
+      name: "Camera",
+      icon: <img src="/scalable/devices/camera-web.svg" alt="Camera" />,
+    },
+    {
+      name: "chrome",
+      icon: <img src="/scalable/places/chrome-svgrepo-com.svg" alt="Files" />,
+      isRunning: true,
+    },
+    {
       name: "Photos",
       icon: <img src="/scalable/mimetypes/image-x-generic.svg" alt="Photos" />,
     },

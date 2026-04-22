@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Cloud, Calendar, Code, Rocket, ChevronLeft } from "lucide-react";
+import {
+  Cloud,
+  Calendar,
+  Code,
+  Rocket,
+  ChevronLeft,
+  GitBranch,
+  ExternalLink,
+} from "lucide-react";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 28 },
@@ -18,6 +26,10 @@ const projects = [
     technologies: ["React", "Node.js", "MongoDB", "AppWrite", "Tailwind CSS"],
     period: "Dec-2025",
     status: "completed",
+    description:
+      "A full-featured e-commerce platform built with React and Node.js. It includes complete user authentication, a shopping cart, and a responsive design.",
+    githubLink: "https://github.com/013harsh/e-commerce",
+    liveLink: "https://e-commerce-m753.vercel.app/",
   },
   {
     title: "StudySync",
@@ -25,6 +37,10 @@ const projects = [
     technologies: ["React", "Express", "Socket.io", "Node.js", "PostgreSQL"],
     period: "Feb-2026",
     status: "in-progress",
+    description:
+      "A collaborative real-time study platform. Features include group chats via Socket.io and shared document editing to help students learn together.",
+    githubLink: "https://github.com/013harsh/studysync",
+    liveLink: "https://studysync-1-i62r.onrender.com/",
   },
   {
     title: "AI Chatbot",
@@ -32,6 +48,10 @@ const projects = [
     technologies: ["React", "Node.js", "MongoDB", "Gemini API", "Pinecone"],
     period: "Nov-2025",
     status: "completed",
+    description:
+      "An intelligent chatbot powered by the Gemini API and Pinecone for semantic search, capable of context-aware conversations.",
+    githubLink: "https://github.com/013harsh/ai-chatbot",
+    liveLink: "https://chat-gpt-f6j7.onrender.com/",
   },
   {
     title: "Web Scraping using Python",
@@ -39,6 +59,10 @@ const projects = [
     technologies: ["Python", "BeautifulSoup", "Firebase", "React"],
     period: "June-2025",
     status: "completed",
+    description:
+      "A python-based web scraping tool that extracts specific data from target websites and visualizes it on a React frontend dashboard.",
+    githubLink: "https://github.com/013harsh/web-scraping",
+    liveLink: "https://github.com/013harsh/web-scraping",
   },
   {
     title: "Van Raksham",
@@ -46,6 +70,10 @@ const projects = [
     technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
     period: "Aug-2025",
     status: "completed",
+    description:
+      "A dedicated portal designed to support forest conservation efforts and provide insightful metrics about ongoing environmental projects.",
+    githubLink: "https://github.com/013harsh/van-raksham",
+    liveLink: "https://github.com/013harsh/van-raksham",
   },
 ];
 
@@ -127,13 +155,22 @@ const ProjectDetailsView = ({ project, onBack }) => (
     </button>
 
     <div className="flex flex-col gap-8 md:flex-row">
-      <div className="w-full md:w-1/2 p-2 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden h-[300px] md:h-[400px]">
-        {React.cloneElement(project.image, {
-          className: "w-full h-full object-contain drop-shadow-2xl",
-        })}
+      <div className="flex flex-col w-full gap-6 md:w-2/3">
+        <div className="w-full p-2 sm:p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden min-h-[200px] h-[250px] sm:h-[350px] md:h-[450px]">
+          {React.cloneElement(project.image, {
+            className:
+              "w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500",
+          })}
+        </div>
+
+        {project.description && (
+          <p className="px-2 text-sm leading-relaxed text-white/80 sm:text-base">
+            {project.description}
+          </p>
+        )}
       </div>
 
-      <div className="flex flex-col w-full gap-6 md:w-1/2">
+      <div className="flex flex-col w-full gap-5 md:w-1/3">
         <div>
           <h2 className="mb-2 text-3xl font-bold text-white sm:text-4xl">
             {project.title}
@@ -143,6 +180,7 @@ const ProjectDetailsView = ({ project, onBack }) => (
               <Calendar size={14} className="text-indigo-400" />{" "}
               {project.period}
             </span>
+
             <span
               className={`px-2 py-0.5 rounded-full text-xs border ${getStatusColor(
                 project.status,
@@ -159,6 +197,7 @@ const ProjectDetailsView = ({ project, onBack }) => (
           <h3 className="flex items-center gap-2 mb-4 text-lg font-semibold text-white/90">
             <Code size={18} className="text-indigo-400" /> Technologies Used
           </h3>
+
           <div className="flex flex-wrap gap-2.5">
             {project.technologies.map((tech, i) => (
               <span
@@ -170,6 +209,33 @@ const ProjectDetailsView = ({ project, onBack }) => (
             ))}
           </div>
         </div>
+
+        <div className="w-full h-px bg-white/10" />
+
+        <div className="flex flex-wrap items-center gap-4 px-2">
+          {project.githubLink && (
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium transition-all bg-white/10 hover:bg-white/20 rounded-xl text-white hover:scale-105"
+            >
+              <GitBranch size={18} /> Source Code
+            </a>
+          )}
+          {project.liveLink && (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium transition-all bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/30 rounded-xl hover:scale-105"
+            >
+              <ExternalLink size={18} /> Live Demo
+            </a>
+          )}
+        </div>
+
+        <div className="w-full h-px bg-white/10" />
       </div>
     </div>
   </motion.div>

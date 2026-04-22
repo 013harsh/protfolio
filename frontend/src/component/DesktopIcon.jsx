@@ -27,7 +27,7 @@ const DesktopIcon = ({
           onDoubleClick?.();
         }}
       >
-        <div className="flex items-center justify-center w-10 h-10 rounded-xl transition-transform">
+        <div className="flex items-center justify-center w-10 h-10 transition-transform rounded-xl">
           {icon}
         </div>
         <span

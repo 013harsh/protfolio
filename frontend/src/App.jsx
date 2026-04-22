@@ -8,7 +8,6 @@ const App = () => {
     <WindowProvider>
       <MediaProvider>
         <div className="relative h-screen overflow-hidden">
-          <h1 style={{ color: "red" }}>TEST CHANGE</h1>
           <Navbar />
           <Routes />
         </div>

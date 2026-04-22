@@ -1,3 +1,4 @@
+import React, { useState, memo } from "react";
 import DesktopIcon from "../component/DesktopIcon";
 import { useWindowContext } from "../context/WindowContext";
 

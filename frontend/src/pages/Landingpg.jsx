@@ -146,8 +146,10 @@ const Landingpg = () => {
               type={item.type}
               compact
               isSelected={selectedIconId === item.id}
-              onClick={() => setSelectedIconId(item.id)}
-              onDoubleClick={() => handleLaunch(item)}
+              onClick={() => {
+                setSelectedIconId(item.id);
+                handleLaunch(item);
+              }}
             />
           ))}
         </div>
@@ -161,8 +163,10 @@ const Landingpg = () => {
               icon={item.icon}
               type={item.type}
               isSelected={selectedIconId === item.id}
-              onClick={() => setSelectedIconId(item.id)}
-              onDoubleClick={() => handleLaunch(item)}
+              onClick={() => {
+                setSelectedIconId(item.id);
+                handleLaunch(item);
+              }}
             />
           ))}
         </div>
@@ -176,8 +180,10 @@ const Landingpg = () => {
               icon={item.icon}
               type={item.type}
               isSelected={selectedIconId === item.id}
-              onClick={() => setSelectedIconId(item.id)}
-              onDoubleClick={() => handleLaunch(item)}
+              onClick={() => {
+                setSelectedIconId(item.id);
+                handleLaunch(item);
+              }}
             />
           ))}
         </div>

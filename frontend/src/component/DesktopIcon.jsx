@@ -5,7 +5,6 @@ const DesktopIcon = ({
   isSelected = false,
   compact = false,
   onClick,
-  onDoubleClick,
 }) => {
   if (compact) {
     // Mobile dock mode: icon only, smaller, label hidden
@@ -21,10 +20,6 @@ const DesktopIcon = ({
         onClick={(e) => {
           e.stopPropagation();
           onClick?.();
-        }}
-        onDoubleClick={(e) => {
-          e.stopPropagation();
-          onDoubleClick?.();
         }}
       >
         <div className="flex items-center justify-center w-10 h-10 transition-transform rounded-xl">
@@ -53,10 +48,6 @@ const DesktopIcon = ({
       onClick={(e) => {
         e.stopPropagation();
         onClick?.();
-      }}
-      onDoubleClick={(e) => {
-        e.stopPropagation();
-        onDoubleClick?.();
       }}
     >
       <div

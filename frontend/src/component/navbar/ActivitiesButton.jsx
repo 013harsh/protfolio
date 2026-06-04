@@ -6,7 +6,7 @@ const ActivitiesButton = ({ onClick, isActive }) => {
       <button
         onClick={onClick}
         className={`h-full px-3 font-semibold tracking-tight transition-colors duration-200 ${
-          isActive ? "bg-white/15" : "hover:bg-white/10"
+          isActive ? "bg-white/15 text-black" : "hover:bg-white/10"
         }`}
       >
         Activities

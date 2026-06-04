@@ -6,18 +6,18 @@ import { useWindowContext } from "../context/WindowContext";
 import CameraApp from "../component/apps/CameraApp";
 import FilesApp from "../component/apps/FilesApp";
 import GenericApp from "../component/apps/GenericApp";
-import PhotoApp from "../component/Details/PhotosApp";
-import VideoApp from "../component/Details/VideosApp";
+import PhotoApp from "../pages/Details/PhotosApp";
+import VideoApp from "../pages/Details/VideosApp";
 import BrowserApp from "../component/apps/BrowserApp";
 import DetailWindow from "../component/apps/DetailWindow";
 import MapsApp from "../component/apps/MapsApp";
 import SettingsApp from "../component/apps/SettingsApp";
 
 // Detail Components
-import Skills from "../component/Details/Skills";
-import AboutMe from "../component/Details/AboutMe";
-import Experience from "../component/Details/Experience";
-import Projects from "../component/Details/Projects";
+import Skills from "../pages/Details/Skills";
+import AboutMe from "../pages/Details/AboutMe";
+import Experience from "../pages/Details/Experience";
+import Projects from "../pages/Details/Projects";
 import useScreenSize from "../hooks/useScreenSize";
 
 const AppRenderer = memo(({ window }) => {

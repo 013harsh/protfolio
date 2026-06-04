@@ -107,6 +107,15 @@ const AboutMe = () => {
           <a href="https://www.instagram.com/hkaggarwal013">
             <img src="/instagram.svg" alt="" width={30} height={30} />
           </a>
+          <a href="https://leetcode.com/u/Hhrsh013">
+            <img
+              src="/leetcode.png"
+              alt=""
+              width={25}
+              height={25}
+              className="rounded-sm"
+            />
+          </a>
         </div>
       </motion.div>
 

@@ -36,14 +36,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 z-[100] w-full bg-[#1a1a1a]/95 backdrop-blur-md border-b border-white/5 h-8 select-none">
-        <div className="flex items-center justify-between h-full px-3 text-[13px] font-medium text-white/90">
-          <ActivitiesButton
-            onClick={toggleActivities}
-            isActive={isActivitiesOpen}
-          />
-
-          <Clock />
-
+        <div className="flex items-center justify-between h-full px-3 text-[13px] font-medium text-white/100">
           {/* System tray: show all on desktop/tablet, icon-only on mobile */}
           <div
             ref={menuRef}
@@ -66,6 +59,13 @@ const Navbar = () => {
               {isSystemMenuOpen && <SystemMenu isOpen={isSystemMenuOpen} />}
             </AnimatePresence>
           </div>
+
+          <Clock />
+
+          <ActivitiesButton
+            onClick={toggleActivities}
+            isActive={isActivitiesOpen}
+          />
         </div>
       </nav>
 

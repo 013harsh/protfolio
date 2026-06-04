@@ -21,17 +21,6 @@ const fadeUp = (delay = 0) => ({
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    image: <img src="/e.png" alt="nothing" />,
-    technologies: ["React", "Node.js", "MongoDB", "AppWrite", "Tailwind CSS"],
-    period: "Dec-2025",
-    status: "completed",
-    description:
-      "A full-featured e-commerce platform built with React and Node.js. It includes complete user authentication, a shopping cart, and a responsive design.",
-    githubLink: "https://github.com/013harsh/e-commerce",
-    liveLink: "https://e-commerce-m753.vercel.app/",
-  },
-  {
     title: "StudySync",
     image: <img src="/s.png" alt="nothing" />,
     technologies: ["React", "Express", "Socket.io", "Node.js", "PostgreSQL"],
@@ -74,6 +63,17 @@ const projects = [
       "A dedicated portal designed to support forest conservation efforts and provide insightful metrics about ongoing environmental projects.",
     githubLink: "https://github.com/013harsh/van-raksham",
     liveLink: "https://github.com/013harsh/van-raksham",
+  },
+  {
+    title: "E-Commerce Platform",
+    image: <img src="/e.png" alt="nothing" />,
+    technologies: ["React", "Node.js", "MongoDB", "AppWrite", "Tailwind CSS"],
+    period: "Dec-2025",
+    status: "completed",
+    description:
+      "A full-featured e-commerce platform built with React and Node.js. It includes complete user authentication, a shopping cart, and a responsive design.",
+    githubLink: "https://github.com/013harsh/e-commerce",
+    liveLink: "https://e-commerce-m753.vercel.app/",
   },
 ];
 

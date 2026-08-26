@@ -18,7 +18,7 @@ const categories = [
     icon: Code2,
     iconColor: "text-indigo-400",
     iconBg: "bg-indigo-500/15 border-indigo-500/30",
-    techs: ["JavaScript", "C++", "C++ (DSA)", "HTML", "CSS"],
+    techs: ["JavaScript", "C++", "C++ (DSA)", "C#", "HTML", "CSS"],
   },
   {
     id: "frontend",
@@ -44,6 +44,7 @@ const categories = [
     techs: [
       "Node.js",
       "Express.js",
+      ".NET",
       "REST APIs",
       "GraphQL",
       "Socket.io",
@@ -60,6 +61,7 @@ const categories = [
       "MongoDB",
       "PostgreSQL",
       "MySQL",
+      "MSSQL",
       "Redis",
       "Firebase",
       "Supabase",
@@ -72,7 +74,7 @@ const categories = [
     icon: Cloud,
     iconColor: "text-sky-400",
     iconBg: "bg-sky-500/15 border-sky-500/30",
-    techs: ["AWS", "Docker", "GitHub Actions", "Vercel", "Render"],
+    techs: ["AWS", "Docker", "GitHub Actions", "Jenkins", "Vercel", "Render"],
   },
 
   {
@@ -81,7 +83,7 @@ const categories = [
     icon: Wrench,
     iconColor: "text-violet-400",
     iconBg: "bg-violet-500/15 border-violet-500/30",
-    techs: ["Git", "GitHub", "VS Code", "kiro", "windsurf", "Postman", "Figma"],
+    techs: ["Git", "Git Bash", "GitHub", "VS Code", "kiro", "windsurf", "Postman", "Jira", "Slack", "Figma"],
   },
 ];
 

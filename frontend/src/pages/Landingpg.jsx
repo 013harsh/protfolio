@@ -64,7 +64,6 @@ const AppRenderer = memo(({ window }) => {
           <Projects />
         </DetailWindow>
       );
-
     default:
       return <GenericApp windowId={windowId} metadata={metadata} />;
   }

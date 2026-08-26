@@ -24,7 +24,7 @@ const education = [
     degree: "Bachelor of Technology — Computer Science",
     institution: "Guru Tegh Bahadur 4th Centenary Engineering College",
     period: "2023–2027",
-    marks: "CGPA: 7.45 || GGSIPU,Delhi",
+    marks: "CGPA: 7.8 || GGSIPU,Delhi",
     desc: "Focused on software engineering, algorithms, and modern web technologies. Active participant in hackathons and coding competitions.",
   },
   {
@@ -148,8 +148,8 @@ const AboutMe = () => {
       >
         {[
           { value: "17+", label: "Projects" },
-          { value: "0", label: "Internships" },
-          { value: "7.45", label: "CGPA" },
+          { value: "1", label: "Internships" },
+          { value: "7.8", label: "CGPA" },
           { value: "15+", label: "Tech Stack" },
         ].map((stat, i) => (
           <motion.div

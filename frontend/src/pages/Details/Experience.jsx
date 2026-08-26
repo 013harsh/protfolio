@@ -243,7 +243,7 @@ const ExperienceDetailsView = ({ experience, onBack }) => {
             <div>
               <h3 className="flex items-center gap-2 mb-4 text-xl font-bold text-white">
                 <Target size={20} className="text-pink-400" />
-                Impact & Responsibilities
+                Experience
               </h3>
 
               <div className="flex flex-col gap-4">

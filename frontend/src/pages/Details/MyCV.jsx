@@ -29,7 +29,7 @@ const MyCV = () => {
         className="flex items-center gap-4 mt-2"
       >
         <a
-          href="/harshkumarresume.pdf"
+          href="/HarshKumar013Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="px-6 py-2.5 text-sm font-semibold text-white transition-all bg-indigo-500/80 rounded-lg hover:bg-indigo-500 border border-indigo-400/30 w-fit shadow-lg shadow-indigo-500/20"
@@ -37,7 +37,7 @@ const MyCV = () => {
           View Resume
         </a>
         <a
-          href="/harshkumarresume.pdf"
+          href="/HarshKumar013Resume.pdf"
           download="Harsh_Kumar_Resume.pdf"
           className="px-6 py-2.5 text-sm font-semibold text-white transition-all border rounded-lg bg-white/5 border-white/10 hover:bg-white/10 w-fit"
         >

@@ -111,7 +111,7 @@ const Landingpg = () => {
 
   const handleLaunch = (icon) => {
     if (icon.id === "cv") {
-      window.open("/harshkumarresume.pdf");
+      window.open("/HarshKumar013Resume.pdf");
       return;
     }
     const title = icon.label || icon.id;

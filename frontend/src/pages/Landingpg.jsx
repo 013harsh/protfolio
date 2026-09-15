@@ -12,6 +12,7 @@ import BrowserApp from "../component/apps/BrowserApp";
 import DetailWindow from "../component/apps/DetailWindow";
 import MapsApp from "../component/apps/MapsApp";
 import SettingsApp from "../component/apps/SettingsApp";
+import TerminalApp from "../component/apps/TerminalApp";
 
 // Detail Components
 import Skills from "../pages/Details/Skills";
@@ -38,6 +39,8 @@ const AppRenderer = memo(({ window }) => {
       return <MapsApp windowId={windowId} metadata={metadata} />;
     case "settings":
       return <SettingsApp windowId={windowId} metadata={metadata} />;
+    case "terminal":
+      return <TerminalApp windowId={windowId} metadata={metadata} />;
 
     // Portfolio Detail Pages using the DetailWindow wrapper
     case "skills":
@@ -104,6 +107,34 @@ const desktopIcons = [
   },
 ];
 
+const dockIcons = [
+  {
+    id: "chrome",
+    label: "Browser",
+    icon: <img src="/scalable/places/chrome-svgrepo-com.svg" alt="chrome" />,
+    type: "app",
+  },
+  {
+    id: "terminal",
+    label: "Terminal",
+    icon: <img src="/scalable/places/Terminal.svg" alt="terminal" />,
+    type: "app",
+  },
+  {
+    id: "photos",
+    label: "Photos",
+    icon: <img src="/scalable/places/folder-pictures.svg" alt="photos" />,
+    type: "folder",
+  },
+
+  {
+    id: "maps",
+    label: "Maps",
+    icon: <img src="/scalable/places/maps.svg" alt="maps" />,
+    type: "app",
+  },
+];
+
 const Landingpg = () => {
   const { openApps, openApp, minimizedWindows } = useWindowContext();
   const [selectedIconId, setSelectedIconId] = useState(null);
@@ -135,8 +166,8 @@ const Landingpg = () => {
 
       {/* Desktop Icons */}
       {isMobile ? (
-        /* Mobile: bottom dock row */
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center gap-1 px-2 pt-2 pb-4 border-t pointer-events-auto bg-black/30 backdrop-blur-md border-white/10">
+        /* Mobile: vertical column on the left */
+        <div className="absolute z-10 flex flex-col gap-2 pointer-events-auto top-10 left-2">
           {desktopIcons.map((item) => (
             <DesktopIcon
               key={item.id}
@@ -185,6 +216,28 @@ const Landingpg = () => {
               }}
             />
           ))}
+        </div>
+      )}
+
+      {/* Bottom Dock (Mobile Only) */}
+      {isMobile && (
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center justify-center">
+          <div className="flex items-center justify-center gap-2 px-4 pt-2 pb-2 border shadow-lg rounded-2xl bg-black/40 backdrop-blur-md border-white/20 shadow-black/50">
+            {dockIcons.map((item) => (
+              <DesktopIcon
+                key={item.id}
+                label={item.label}
+                icon={item.icon}
+                type={item.type}
+                compact
+                isSelected={selectedIconId === item.id}
+                onClick={() => {
+                  setSelectedIconId(item.id);
+                  handleLaunch(item);
+                }}
+              />
+            ))}
+          </div>
         </div>
       )}
 

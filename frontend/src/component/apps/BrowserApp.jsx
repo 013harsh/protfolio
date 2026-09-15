@@ -23,8 +23,8 @@ const BrowserApp = ({ windowId, metadata }) => {
   const dragControls = useDragControls();
   const { isMobile, isTablet } = useScreenSize();
 
-  const defaultUrl = metadata.url || "https://www.google.com/search?igu=1";
-  const displayUrl = metadata.displayUrl || "google.com";
+  const defaultUrl = metadata.url || "https://en.wikipedia.org";
+  const displayUrl = metadata.displayUrl || "wikipedia.org";
 
   const toggleMaximize = useCallback(() => setIsMaximized((prev) => !prev), []);
   const handleClose = useCallback(() => closeWindow(windowId), [closeWindow, windowId]);

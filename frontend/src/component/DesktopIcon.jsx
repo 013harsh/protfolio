@@ -11,11 +11,11 @@ const DesktopIcon = ({
     return (
       <div
         className={`relative flex flex-col items-center w-14 gap-0.5 p-1.5 rounded-md cursor-pointer select-none transition-all
-          hover:bg-blue-500/40 active:bg-blue-500/40
+          md:hover:bg-blue-500/40 active:bg-blue-500/40
         ${
           isSelected
             ? "bg-blue-500/40 ring-1 ring-blue-500/40"
-            : "hover:bg-blue-500/40 active:bg-blue-500/40"
+            : "md:hover:bg-blue-500/40 active:bg-blue-500/40"
         }`}
         onClick={(e) => {
           e.stopPropagation();
@@ -39,11 +39,11 @@ const DesktopIcon = ({
   return (
     <div
       className={`relative flex flex-col items-center w-24 gap-1 p-2 rounded-md cursor-pointer select-none transition-all
-        hover:bg-blue-500/40 active:bg-blue-500/40
+        md:hover:bg-blue-500/40 active:bg-blue-500/40
       ${
         isSelected
           ? "bg-blue-500/40 ring-1 ring-blue-500/40"
-          : "hover:bg-blue-500/40 active:bg-blue-500/40"
+          : "md:hover:bg-blue-500/40 active:bg-blue-500/40"
       }`}
       onClick={(e) => {
         e.stopPropagation();
@@ -52,7 +52,7 @@ const DesktopIcon = ({
     >
       <div
         className={`flex items-center justify-center w-14 h-14 rounded-xl
-        transition-transform group-hover:scale-105`}
+        transition-transform md:group-hover:scale-105`}
       >
         {icon}
       </div>

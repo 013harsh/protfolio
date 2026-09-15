@@ -97,7 +97,7 @@ const SystemMenu = ({ isOpen }) => {
             <User size={18} className="text-white" />
           </div>
           <span className="text-[14px] font-medium text-white/90">
-            Allan Day
+            Harsh Kumar
           </span>
         </div>
         <ChevronRight

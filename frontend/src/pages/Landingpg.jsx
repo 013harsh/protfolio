@@ -124,7 +124,7 @@ const Landingpg = () => {
 
   return (
     <div
-      className="relative w-full h-screen overflow-hidden"
+      className="relative w-full h-[100dvh] overflow-hidden"
       onClick={handleDesktopClick}
     >
       <img
@@ -136,7 +136,7 @@ const Landingpg = () => {
       {/* Desktop Icons */}
       {isMobile ? (
         /* Mobile: bottom dock row */
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center gap-1 px-2 py-2 border-t pointer-events-auto bg-black/30 backdrop-blur-md border-white/10">
+        <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center gap-1 px-2 pt-2 pb-4 border-t pointer-events-auto bg-black/30 backdrop-blur-md border-white/10">
           {desktopIcons.map((item) => (
             <DesktopIcon
               key={item.id}

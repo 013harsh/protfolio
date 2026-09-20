@@ -21,6 +21,16 @@ const fadeUp = (delay = 0) => ({
 
 const projects = [
   {
+    title: "Tax Navigo",
+    image: <img src="/taxnavigo.png" alt="Tax Navigo" />,
+    technologies: ["React", "Tailwind CSS", "Node.js"],
+    period: "2026",
+    status: "live",
+    description:
+      "A comprehensive financial guidance and tax planning platform for chartered accountants. It provides strategic tax planning, auditing, and corporate advisory.",
+    liveLink: "https://taxnavigo.in/",
+  },
+  {
     title: "StudySync",
     image: <img src="/s.png" alt="nothing" />,
     technologies: ["React", "Express", "Socket.io", "Node.js", "PostgreSQL"],
@@ -50,8 +60,8 @@ const projects = [
     status: "completed",
     description:
       "A python-based web scraping tool that extracts specific data from target websites and visualizes it on a React frontend dashboard.",
-    githubLink: "https://github.com/013harsh/web-scraping",
-    liveLink: "https://github.com/013harsh/web-scraping",
+    githubLink: "https://github.com/013harsh/WEB-SCRAPING-USING-BEAUTIFUL-SOUP",
+    liveLink: "https://github.com/013harsh/WEB-SCRAPING-USING-BEAUTIFUL-SOUP",
   },
   {
     title: "Van Raksham",
@@ -61,8 +71,8 @@ const projects = [
     status: "completed",
     description:
       "A dedicated portal designed to support forest conservation efforts and provide insightful metrics about ongoing environmental projects.",
-    githubLink: "https://github.com/013harsh/van-raksham",
-    liveLink: "https://github.com/013harsh/van-raksham",
+    githubLink: "https://github.com/013harsh/van-rakshan-",
+    liveLink: "https://github.com/013harsh/van-rakshan-",
   },
   {
     title: "E-Commerce Platform",
@@ -83,6 +93,8 @@ const getStatusColor = (status) => {
       return "bg-emerald-500/10 text-emerald-400 border-emerald-500/25";
     case "in-progress":
       return "bg-amber-500/10 text-amber-400 border-amber-500/25";
+    case "live":
+      return "bg-blue-500/10 text-blue-400 border-blue-500/25";
     default:
       return "bg-white/10 text-white/60 border-white/20";
   }
@@ -101,6 +113,13 @@ const ProjectCard = ({ project, index, onClick }) => (
     }`}
   >
     <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5" />
+
+    {project.status === "live" && (
+      <div className="absolute top-0 right-4 bg-blue-500/80 backdrop-blur-md border border-t-0 border-blue-400 text-white text-xs font-bold px-3 py-1.5 rounded-b-lg shadow-lg z-10 flex items-center gap-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+        Live
+      </div>
+    )}
 
     <p className="border-t-[8px] border-b-[8px] border-gray-600 text-white/60">
       {project.image}
@@ -186,7 +205,11 @@ const ProjectDetailsView = ({ project, onBack }) => (
                 project.status,
               )}`}
             >
-              {project.status === "completed" ? "Completed" : "In Progress"}
+              {project.status === "completed"
+                ? "Completed"
+                : project.status === "live"
+                  ? "This site is live"
+                  : "In Progress"}
             </span>
           </div>
         </div>

@@ -23,7 +23,7 @@ const DetailWindow = ({ windowId, metadata, children }) => {
 
   const getWindowSize = () => {
     if (isMobile) {
-      return { width: "100vw", height: "calc(100vh - 32px)", top: "32px", left: "0px" };
+      return { width: "100vw", height: "calc(100dvh - 32px)", top: "32px", left: "0px" };
     }
     if (isTablet) {
       return { width: "min(750px, 94vw)", height: "min(550px, 85vh)", top: "40px", left: "3vw" };
@@ -45,7 +45,7 @@ const DetailWindow = ({ windowId, metadata, children }) => {
         scale: 1,
         opacity: 1,
         width: forceFullscreen || isMaximized ? "100vw" : windowSize.width,
-        height: forceFullscreen || isMaximized ? "calc(100vh - 32px)" : windowSize.height,
+        height: forceFullscreen || isMaximized ? "calc(100dvh - 32px)" : windowSize.height,
         top: forceFullscreen || isMaximized ? "32px" : windowSize.top,
         left: forceFullscreen || isMaximized ? "0px" : windowSize.left,
         x: (forceFullscreen || isMaximized) ? 0 : undefined,
@@ -101,7 +101,7 @@ const DetailWindow = ({ windowId, metadata, children }) => {
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-y-auto bg-[#1a1a1a] p-3 sm:p-6 text-white/90 custom-scrollbar">
+      <div className="flex-1 overflow-y-auto bg-[#1a1a1a] p-3 pb-24 sm:p-6 sm:pb-6 text-white/90 custom-scrollbar">
         {React.isValidElement(children)
           ? React.cloneElement(children, {
               isMaximized: isMaximized || forceFullscreen,
